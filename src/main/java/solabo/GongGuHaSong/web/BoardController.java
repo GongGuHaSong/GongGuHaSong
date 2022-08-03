@@ -17,7 +17,7 @@ public class BoardController {
     @PutMapping("board/{id}")
     public void update(@RequestBody BoardSaveDto dto, @PathVariable String id){
         Board board = dto.toEntity();
-        board.set_id(id); // save함수는 같은 아이디일 시 수정
+        board.setId(id); // save함수는 같은 아이디일 시 수정
         boardRepository.save(board);
     }
 
