@@ -20,6 +20,8 @@ public class SellSaveDto {
     private String category;
     private String mainPhoto;
     private String sizePhoto;
+    private String accountName;
+    private String account;
 
     public Sell toEntity(){
         Sell sell = new Sell();
@@ -36,6 +38,8 @@ public class SellSaveDto {
         sell.setCategory(category);
         sell.setMainPhoto(mainPhoto);
         sell.setSizePhoto(sizePhoto);
+        sell.setAccountName(accountName);
+        sell.setAccount(account);
         return sell;
     }
 }
