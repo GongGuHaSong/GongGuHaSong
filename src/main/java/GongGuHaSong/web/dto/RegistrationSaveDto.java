@@ -4,6 +4,8 @@ package GongGuHaSong.web.dto;
 import GongGuHaSong.domain.Registration;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class RegistrationSaveDto {
     private String _id;
@@ -22,7 +24,7 @@ public class RegistrationSaveDto {
         registration.setTitle(title);
         registration.setPhoneNumber(phoneNumber);
         registration.setTotal_Count(total_Count);
-        registration.setSizeCount(sizeCount);
+        registration.setSizeCount((List) sizeCount);
         registration.setUserName(userName);
         registration.setDepositTime(depositTime);
         registration.setMethod(method);
