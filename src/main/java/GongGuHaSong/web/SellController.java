@@ -54,8 +54,13 @@ public class SellController {
 
     @PostMapping("/sell")
     public Sell save(@RequestBody SellSaveDto dto) {
-        //@RequsetBody 어노테이션을 붙인 이유는 json 타입으로 데이터를 받기 위함.
-        Sell sellEntity = SellRepository.save(dto.toEntity());
-        return sellEntity;
+        String title = dto.getTitle();
+        List one = SellRepository.findByTitle(title);
+        if (one != null) {
+            //@RequsetBody 어노테이션을 붙인 이유는 json 타입으로 데이터를 받기 위함.
+            Sell sellEntity = SellRepository.save(dto.toEntity());
+            return sellEntity;
+        }
+        return null;
     }
 }

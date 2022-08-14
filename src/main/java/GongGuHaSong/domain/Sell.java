@@ -25,4 +25,6 @@ public class Sell {
     private String category;
     private String mainPhoto;
     private String sizePhoto;
+    private String accountName;
+    private String account;
 }
