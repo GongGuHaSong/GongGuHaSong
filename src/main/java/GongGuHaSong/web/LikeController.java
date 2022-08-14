@@ -22,11 +22,10 @@ public class LikeController {
         return 1; //1:성공, -1:실패
     }
 
-    @GetMapping("/my/like/{id}")
-    public Like findById(@PathVariable String id) {
-        return likeRepository.findById(id).get();
+    @GetMapping("/my/like/{pid}")
+    public List<Like> findByPid(@PathVariable String pid) {
+        return likeRepository.findByPid(pid);
     }
-
 
     @GetMapping("/my/like")
     public List<Like> findAll(){
