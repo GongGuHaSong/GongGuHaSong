@@ -12,7 +12,7 @@ public class RegistrationSaveDto {
     private String userId;
     private String phoneNumber;
     private int total_Count;
-    private Object sizeCount;
+    private List sizeCount;
     private String userName;
     private String depositTime;
     private String method;
@@ -24,7 +24,7 @@ public class RegistrationSaveDto {
         registration.setTitle(title);
         registration.setPhoneNumber(phoneNumber);
         registration.setTotal_Count(total_Count);
-        registration.setSizeCount((List) sizeCount);
+        registration.setSizeCount(sizeCount);
         registration.setUserName(userName);
         registration.setDepositTime(depositTime);
         registration.setMethod(method);
