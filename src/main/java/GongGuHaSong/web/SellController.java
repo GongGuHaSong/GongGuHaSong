@@ -56,7 +56,9 @@ public class SellController {
     public Sell save(@RequestBody SellSaveDto dto) {
         String title = dto.getTitle();
         List one = SellRepository.findByTitle(title);
-        if (one != null) {
+        System.out.println(title);
+        System.out.println(one);
+        if (one.isEmpty()) {
             //@RequsetBody 어노테이션을 붙인 이유는 json 타입으로 데이터를 받기 위함.
             Sell sellEntity = SellRepository.save(dto.toEntity());
             return sellEntity;
