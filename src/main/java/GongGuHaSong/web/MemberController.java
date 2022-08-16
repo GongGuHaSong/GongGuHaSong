@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequiredArgsConstructor //DI
-@Controller
+@RestController
 //@RestController //데이터 리턴 서버 -> @ResponseBody 를 전체적으로 덧입힌 효과. (return 문자열 그대로 출력)
 public class MemberController {
     //DI

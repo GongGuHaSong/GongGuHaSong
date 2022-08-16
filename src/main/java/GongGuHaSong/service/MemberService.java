@@ -38,8 +38,8 @@ public class MemberService {
     }
 
     public String update(String pid, MemberUpdateRequestDto dto) {
-        Member entity = memberRepository.findById(pid)
-                .orElseThrow(() -> new IllegalArgumentException());
+        Member entity = memberRepository.findByPid(pid)
+                .orElseThrow(() -> new IllegalArgumentException("해당 id가 없습니다."));
 
         entity.update(dto.getPwd(), dto.getPhone(), dto.getEmail(), dto.getAddress());
 
