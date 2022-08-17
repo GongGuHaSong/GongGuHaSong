@@ -97,6 +97,9 @@ const Quantity = ({ findItem }) => {
             if (res.status === 200) {
                 alert('수량조사가 완료되었습니다!')
             }
+            else {
+                alert('로그인 후 이용해주세요')
+            }
         })
     }
 
@@ -130,6 +133,7 @@ const Quantity = ({ findItem }) => {
 
 
     useEffect(() => {
+        heartlists();
         calculateDday();
         calculateRate();
     }, [])
@@ -154,13 +158,13 @@ const Quantity = ({ findItem }) => {
                     <li>D{Dday}</li><br />
                     <li>{findItem.price}원</li><br />
                     <li>{Math.ceil(applyquantity / findItem.min_count * 100)}%</li><br />
-                    <li>{findItem.min_count - applyquantity}개</li><br />
+                    <li>{findItem.min_count - applyquantity > 0 ? <p className={styles.count}>{findItem.min_count - applyquantity}개</p>: "최소 수량 충족"}</li><br />
                 </ul>
 
 
                 <ul className={styles.buttongroup}>
                     <li><button className={styles.b1} onClick={prom}>수량조사<br />참여하기</button></li>
-                    <li><button className={styles.b2}>총대에게<br />쪽지보내기</button></li>
+                    <li><button className={styles.b2} onClick={openModal}>총대에게<br />쪽지보내기</button></li>
                     <li><div className={styles.heart}>
                         <img onClick={clickLike} src={heart ? like : nonelike} alt="찜안함" style={{ width: "70px", height: "70px" }} /></div>
                     </li>

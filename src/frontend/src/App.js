@@ -43,30 +43,11 @@ function App() {
    const [order, getOrder] = useState([]);
 
    const getOrders = async() => {
-     const orders = await axios.get('order/all').then((res) => res.data)
+     const orders = await axios.get('/order/all').then((res) => res.data)
       
      getOrder(orders)
    }
 
-
-
-   const [wish, getWish] = useState([]);
-
-   const getWishs = async () => {
-    await axios.get("/my/like/" + sessionStorage.user_id).then((res) => {
-       let wishfilter = product.filter(x => 
-         {
-           return res.data.some(function(y) {
-             return x.title == y.name
-           })
-         }
-         )
-      getWish(wishfilter)
-    }
-    );
-
-    
-  }
 
 
    //로그인 상태관리
@@ -75,14 +56,8 @@ function App() {
    useEffect(() => {
      getProducts();
      getOrders();
-     getWishs();
 
    }, [])
-
-   useEffect(() => {
-    getWishs();
-
-  }, [wish])
 
   return (
     <Router>
@@ -90,7 +65,7 @@ function App() {
         <Route path="/" element={<Home product={product}/>} />
         <Route path="/order" element={<Order product={product} orders={order}/>} />
         <Route path="/sale" element={<Sale product={product}/>} />
-        <Route path="/wish" element={<Wish wish={wish}/>} />
+        <Route path="/wish" element={<Wish product={product}/>} />
         <Route path="/message" element={<Messagepage />} />
         <Route path="/quantityinfo" element={<Quantityinfo product={product}/>}/>
         <Route path="/privacy" element={<Privacycheck />} />

@@ -23,7 +23,7 @@ const Login = () => {
   const onClickLogin = async () => {
     const users = await axios.get('/member').then((res) => {return res.data});
     
-    console.log(users)
+
     try{
       
     const user = users.find((users) => users.pid === inputId);

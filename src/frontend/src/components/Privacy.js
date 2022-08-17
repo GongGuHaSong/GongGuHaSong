@@ -22,7 +22,7 @@ const Privacy = () => {
 
   const { pwd, phone, email, address } = member;
   const onReset = () => {
-    history('/order')
+    history('/')
   };
 
   const onChange = (e) => {
@@ -33,13 +33,17 @@ const Privacy = () => {
     const pid = sessionStorage.user_id;
       const products = await axios.get('/member/'+ pid).then((res) => { return res.data });
       
-    console.log(products)
       if(products.pwd === check) {
         setUser(products)
+        setMember({...member, phone: products.phone, email: products.email, address: products.address});
+
         setPrivacy(true)
       } else {
         alert("잘못된 비밀번호 입니다.")
       }
+
+    
+    
 
   }
 
@@ -68,17 +72,17 @@ const Privacy = () => {
   const handleSubmit = async(e) => {
     e.preventDefault()
 
-    console.log(member)
-await axios({
+
+    await axios({
         method: "PATCH",
         url: '/my/edit/' + user.pid, 
         data: member,
        
       }).then((res) => {
-        console.log(res)
+
         if (res.status === 200) {
           alert("회원정보 수정이 완료되었습니다.")
-          history(`/order`);
+          history(`/`);
         }
         else { }
       });
@@ -86,13 +90,11 @@ await axios({
 
 useEffect(() => {
   
-  setMember({...member, phone: user.phone});
-  setMember({...member, email: user.email});
-  setMember({...member, address: user.address});
-
 
 }, [])
-  return (
+
+
+return (
 
     <div>
         {privacy===true ? 

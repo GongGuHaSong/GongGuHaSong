@@ -23,24 +23,28 @@ const Order = ({product, orders}) => {
   }
 
   function calculateDay(item) {
-    
-    let endDay = new Date(item[0].finishDate)
-    return endDay.getTime();
+    if(item.length !==0){
+      let endDay = new Date(item[0].finishDate)
+      return endDay.getTime();
+  
+
+    }
   }
+
 
   function calculateday(item) {
-    let startDay = new Date(item[0].startDate)
+    if(item.length !== 0) {
+          let startDay = new Date(item[0].startDate)
     return startDay.getTime();
+
+    }
   }
-
-
- 
 
 
   useEffect(() => {
     
-
-    const orderfilter = orders.filter((item) => item.userId === sessionStorage.user_id)
+    if(orders.length !== 0) {    
+      const orderfilter = orders.filter((item) => item.userId === sessionStorage.user_id)
   
       let filter = product.filter(x => 
         {
@@ -49,7 +53,6 @@ const Order = ({product, orders}) => {
           })
     }
    )
-   console.log(filter)
 
     const today = new Date();
     const ctoday = today.getTime();
@@ -78,6 +81,9 @@ const Order = ({product, orders}) => {
         
         setFinish(filter)
       }
+    }
+
+
     }
     
   }, [])

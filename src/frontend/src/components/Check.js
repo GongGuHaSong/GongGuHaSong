@@ -22,7 +22,6 @@ const Check = ({check, findItem}) => {
         {params : {title: findItem.title}}).then((res) => {
           
           getApplyquantity(res.data);
-          console.log(applyquantity)
         }
   
         )

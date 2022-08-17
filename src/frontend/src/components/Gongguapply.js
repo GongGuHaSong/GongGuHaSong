@@ -98,9 +98,9 @@ function Gongguapply({ findItem }) {
 
 
     }
+
 useEffect (() => {
     setInputs({...inputs, person: sessionStorage.user_id});
-    console.log(findItem)
 
 },[])
 
@@ -131,10 +131,10 @@ useEffect (() => {
                             pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" maxLength={13} onChange={onChange}/></li>
                         <li><label htmlFor="quantity">구매수량</label><input type="number" name="quantity" min="1" step="1" placeholder="총 구매수량을 적어주세요" onChange={onChange}/></li>
 
-                        <li>사이즈&nbsp;&emsp; <input
+                        <li>옵션&nbsp;&emsp; <input
                             value={inputText}
                             onChange={handlesizeChange}
-                            placeholder="사이즈: 수량 입력"
+                            placeholder="옵션: 수량 입력"
                         />
                             <button type="button" onClick={handleClick} className={styles.addbutton}>추가</button>
                             {sizes.map((sizes) =><div key={sizes.index}>

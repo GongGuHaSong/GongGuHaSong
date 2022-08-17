@@ -70,7 +70,7 @@ const Newgonggu = () => {
         setNewform({...newform, managerId: sessionStorage.user_id});
       }, [])
 
-  
+
       const handleSubmit= async(e) => {
         e.preventDefault()
 
@@ -80,7 +80,7 @@ const Newgonggu = () => {
             data: newform
            
           }).then((res) => {
-            console.log(res)
+
             if (res.status === 200) {
                 alert('새로운 공구가 추가되었습니다!')
               history(`/`);

@@ -91,7 +91,11 @@
     border: 0px;
 
 }
-
+.count {
+    position: absolute;
+    top: 190px;
+    left: 400px;
+}
 a {
     text-decoration: none;
     color: #0D2D84;

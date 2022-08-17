@@ -22,15 +22,22 @@ const Sale = ({product}) => {
   }
 
   function calculateDay(item) {
-    
-    let endDay = new Date(item[0].finishDate)
-    return endDay.getTime();
+    if(item.length !==0){
+      let endDay = new Date(item[0].finishDate)
+      return endDay.getTime();
+  
+
+    }
   }
 
   function calculateday(item) {
-    let startDay = new Date(item[0].startDate)
+    if(item.length !== 0) {
+          let startDay = new Date(item[0].startDate)
     return startDay.getTime();
+
+    }
   }
+
 
 
 

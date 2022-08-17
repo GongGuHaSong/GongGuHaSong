@@ -48,7 +48,6 @@ function Join() {
   const idcheck = async () => {
     const users = await axios.get('/member').then((res) => { return res.data });
     const usersid = users.filter((item) => { return item.pid === pid })
-    console.log(pid)
     if (usersid.length === 0) {
       alert("사용 가능한 아이디입니다.")
       
@@ -60,7 +59,6 @@ function Join() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(newmember.name)
 
   
 await axios({
@@ -69,8 +67,8 @@ await axios({
         data: newmember
        
       }).then((res) => {
-        console.log(res)
         if (res.data.pid === pid) {
+          alert('회원가입이 완료되었습니다.')
           history(`/`);
         }
         else { }

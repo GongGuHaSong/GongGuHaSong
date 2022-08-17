@@ -70,7 +70,7 @@ const Product = ({ findItem }) => {
             { params: { title: findItem.title } }).then((res) => {
 
                 getApplyquantity(res.data);
-                console.log(res.data)
+
             }
 
             )
@@ -83,7 +83,7 @@ const Product = ({ findItem }) => {
         heartlists();
         calculateRate();
 
-
+        
     }, [])
 
 

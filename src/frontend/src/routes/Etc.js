@@ -35,18 +35,17 @@ const Clothes = ({product}) => {
     )
     setMain(catefilter)
 
-    console.log(main)
   }, [])
   return (
     <div className={styles.root}>
       <div className={styles.menugrid}><Menubar /></div>
       <div className={styles.content}>
         <Title />
-         {main.map(main => 
+         {main.length !== 0  ? main.map(main => 
       <Productcomponent key={main._id} 
       main={main}
       />
-      )} 
+      ): <div className={styles.notice}>아직 진행중인 공구가 없습니다.</div>} 
       </div>
 
 

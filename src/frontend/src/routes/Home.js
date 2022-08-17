@@ -43,11 +43,11 @@ function Home({product}) {
         <Title />
         {/* {_id, title, finishDate, heartvalue}) */}
         {
-          main.map((main) => 
+          main.length !== 0 ?main.map((main) => 
             <Productcomponent key={main._id} 
              main={main}
             />
-        )
+        ): <div className={styles.notice}>아직 진행중인 공구가 없습니다.</div>
         
         }
 

@@ -27,7 +27,6 @@ const Quantityinfo = ({product}) => {
     })
 
     setInfo(mainfilter);
-    console.log(mainfilter)
 
   }, [])
 

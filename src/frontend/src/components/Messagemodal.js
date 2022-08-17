@@ -28,15 +28,15 @@ const {sender, receiver, comment, title} = message
 
   const handleSubmit= async(e) => {
     e.preventDefault()
-    console.log(message)
      await axios({
          method: "POST",
          url: '/note', 
          data: message
      
        }).then((res) => {
-         console.log(res)
-         if (res.status === 200) {
+
+
+        if (res.status === 200) {
              alert('쪽지가 전송되었습니다.')
          } else if (res === null){ 
              alert('실패하였습니다.')
@@ -57,7 +57,7 @@ const {sender, receiver, comment, title} = message
 
       getSend(messagefilter)
 
-
+      
     
     })
 
@@ -81,26 +81,22 @@ const {sender, receiver, comment, title} = message
 
 
 const getAllmessages = () => {
+  
   setAllmessage([...send, ...receive])
   allmessage.sort((a, b) => new Date(a.time) - new Date(b.time))
   setOrdermessage(allmessage)
-  console.log(ordermessage)
-
-
 }
 
 
-  
 
   useEffect(() => {
+    
     getSends();
     getReceives();
-
-  },[])
-  useEffect(() => {
     getAllmessages();
 
-  },[ordermessage])
+  },[])
+
   return (
 
     
